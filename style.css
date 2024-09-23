@@ -38,13 +38,13 @@ main {
     background-color: #ff009d;
 }
 
-.top-heading h1{
+.top-heading h1 {
     font-size: 2.5rem;
 }
 
 .container {
     width: 320px;
-    height: 480px;
+    height: 520px;
     border: 2px solid #fff;
     border-radius: 16px;
     display: flex;
@@ -56,30 +56,30 @@ main {
     background-color: #292929;
     position: relative;
     color: #fff;
-    overflow: auto;
 }
 
-.insta-top{
+/* insta top */
+.insta-top {
     padding: 8px 6px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;   
+    justify-content: space-between;
 }
 
-.insta-logo{
+.insta-logo {
     display: flex;
     gap: 4px;
 }
 
-.insta-logo h3{
+.insta-logo h3 {
     font-size: 1.6rem;
     font-family: Billabong;
     font-weight: 200;
     letter-spacing: 1px;
 }
 
-.insta-logo select{
+.insta-logo select {
     display: flex;
     text-align: center;
     width: 10%;
@@ -88,16 +88,26 @@ main {
     color: #fff;
 }
 
-.insta-logo select option{
+.insta-logo select option {
     background-color: #343434;
     border: none;
 }
 
+.top-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+i {
+    font-size: 1.4rem;
+    color: #f1f1f1;
+    transition: ease .2s;
+}
+
+/* story */
 .stories-container {
     width: 100%;
-    height: 20%;
-    border-bottom: 1px solid #555;
-    padding: 0 4px;
+    padding: 2px;
 
     white-space: nowrap;
     overflow-x: auto;
@@ -108,14 +118,21 @@ main {
     display: none;
 }
 
+.story-con{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    overflow: hidden;
+}
+
 .story-box {
     width: 80px;
     height: 80px;
     border: 3px solid #ff009d;
     border-radius: 50%;
-    margin: 4px;
-    display: inline-block;
-    overflow: hidden;
+    margin-left: 4px;
 }
 
 .story-box:hover {
@@ -128,26 +145,6 @@ main {
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-}
-
-.story-box p{
-    background-color: aqua;
-}
-
-.content-container{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    border: 2px solid red;
-}
-
-.content-img{
-    width: 100%;
-}
-
-.content-img img{
-    width: 100%;
-    height: auto;
 }
 
 .viewstory {
@@ -188,6 +185,100 @@ main {
     }
 }
 
+/* content */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    gap: 1rem;
+    padding: .2rem 0 .4rem 0;
+}
+
+.content-container::-webkit-scrollbar {
+    display: none;
+}
+
+.content-img {
+    width: 100%;
+}
+
+.content-img img {
+    width: 100%;
+    height: auto;
+}
+
+/* .content_user {
+    display: flex;
+    width: 100%;
+    border: 2px solid rgb(255, 252, 46);
+    align-items: center;
+    padding: 4px 6px;
+    gap: 4px;
+    display: none;
+}
+
+.content_user .content-img {
+}
+
+.content_user .user_name {
+}
+
+.content_user .content_btns {
+    flex: 1;
+    text-align: end;
+} */
+
+.content-reactions{
+    display: flex;
+    gap: 1rem;
+    padding: 8px;
+}
+
+.content-reactions i:last-child{
+    flex: 1;
+    text-align: end;
+}
+
+.content-details{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6px;
+}
+
+.liked{
+    display: flex;
+    gap: 6px;
+    width: 100%;
+}
+
+.liked_by_img img{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.comment_and_date{
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    gap: 6px;
+    width: 36%;
+}
+
+.content-all-comments a{
+    text-decoration: none;
+    color: #fff;
+}
+
+i:hover{
+    transition: ease-in .4s;
+    color: #fff
+}
+
+/* footer */
 footer {
     text-align: center;
     font-size: 1rem;

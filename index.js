@@ -35,10 +35,14 @@ let stories_Container = document.querySelector(".stories-container");
 let clutter = "";
 
 storyData.forEach(function (elem, idx) {
-  //   console.log(elem, idx);
-  clutter += `<div class="story-box">
-    <img id="${idx}" src="${elem.dp}" alt="img">
-    </div>`;
+  clutter += `<div class="story-con">
+                <div class="story-box">
+                  <img id="${idx}" src="${elem.dp}" alt="img">
+                </div>
+                <p class='namee'>${elem.user}</p>
+              </div>
+              `;
+  // console.log(elem.user);
 });
 
 stories_Container.innerHTML = clutter;
