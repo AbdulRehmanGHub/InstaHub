@@ -61,3 +61,56 @@ stories_Container.addEventListener("click", function (details) {
     viewStory.style.display = "none";
   }, 5000);
 });
+
+let bgChange = document.querySelector(".bg_mode");
+let bg = document.querySelector(".container");
+let icons = document.querySelectorAll("i");
+let paras = document.querySelectorAll("p");
+let selectOption = document.querySelector('select');
+let darkMode = document.querySelector("#dark");
+let lightMode = document.querySelector("#light");
+let flag = 1;
+
+bgChange.addEventListener("click", () => {
+  // console.log(icons);
+
+  if (flag == 1) {
+    bg.style.backgroundColor = "#fff";
+    bg.style.color = "#292929";
+    selectOption.style.color = '#292929';
+
+    darkMode.style.display = "block";
+    lightMode.style.display = "none";
+
+    paras.forEach((elem) => {
+      elem.style.color = "#292929";
+    });
+
+
+    icons.forEach((elem) => {
+      // console.log(elem);
+      elem.style.color = "#000";
+    });
+
+    flag = 0;
+
+  } else if (flag == 0) {
+    bg.style.backgroundColor = "#292929";
+    bg.style.color = "#fff";
+    selectOption.style.color = '#fff';
+
+    darkMode.style.display = "none";
+    lightMode.style.display = "block";
+
+    paras.forEach((elem) => {
+      elem.style.color = "#fff";
+    });
+
+    icons.forEach((elem) => {
+      // console.log(elem);
+      elem.style.color = "#fff";
+    });
+
+    flag = 1;
+  }
+});

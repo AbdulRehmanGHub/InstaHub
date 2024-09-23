@@ -22,6 +22,30 @@ main {
     align-items: center;
 }
 
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.bg_mode i{
+    font-size: 3rem;
+    transition: ease-in-out .3s;
+}
+
+.bg_mode i:hover{
+    transform: scale(1.1);
+}
+
+#light{
+    display: block;
+}
+
+#dark{
+    display: none;
+}
+
 .top-heading {
     text-align: center;
     color: #ff009d;
@@ -56,6 +80,7 @@ main {
     background-color: #292929;
     position: relative;
     color: #fff;
+    transition: ease-in-out 1s;
 }
 
 /* insta top */
