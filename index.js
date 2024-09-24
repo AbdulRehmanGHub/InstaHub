@@ -69,6 +69,8 @@ let paras = document.querySelectorAll("p");
 let selectOption = document.querySelector('select');
 let darkMode = document.querySelector("#dark");
 let lightMode = document.querySelector("#light");
+let profBG = document.querySelector('.content_user');
+let followBTN = document.querySelector('.content_btns button');
 let flag = 1;
 
 bgChange.addEventListener("click", () => {
@@ -78,6 +80,10 @@ bgChange.addEventListener("click", () => {
     bg.style.backgroundColor = "#fff";
     bg.style.color = "#292929";
     selectOption.style.color = '#292929';
+
+    profBG.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    followBTN.style.border = '1px solid black';
+    followBTN.style.color = 'black';
 
     darkMode.style.display = "block";
     lightMode.style.display = "none";
@@ -98,6 +104,10 @@ bgChange.addEventListener("click", () => {
     bg.style.backgroundColor = "#292929";
     bg.style.color = "#fff";
     selectOption.style.color = '#fff';
+
+    profBG.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+    followBTN.style.border = '1px solid white';
+    followBTN.style.color = 'white';
 
     darkMode.style.display = "none";
     lightMode.style.display = "block";
