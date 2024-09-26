@@ -32,6 +32,10 @@ let storyData = [
 ];
 
 let stories_Container = document.querySelector(".stories-container");
+let storyBar = document.querySelector(".storybar");
+let progressBar = document.querySelector(".progress");
+let viewStory = document.querySelector(".viewstory");
+
 let clutter = "";
 
 storyData.forEach(function (elem, idx) {
@@ -47,18 +51,37 @@ storyData.forEach(function (elem, idx) {
 
 stories_Container.innerHTML = clutter;
 
+// stories_Container.addEventListener("click", function (details) {
+//   // console.log(details.target.id);
+//   // console.log(storyData[details.target.id]);
+//   let value = storyData[details.target.id].story;
+//   // console.log(viewStory);
+
+//   viewStory.style.display = "block";
+//   storyBar.style.display = "block";
+//   progressBar.style.display = "block";
+
+//   viewStory.style.backgroundImage = `url(${value})`;
+//   setTimeout(function () {
+//     viewStory.style.display = "none";
+//   }, 5000);
+// });
+
 stories_Container.addEventListener("click", function (details) {
-  // console.log(details.target.id);
-  // console.log(storyData[details.target.id]);
   let value = storyData[details.target.id].story;
-  // console.log(viewStory);
 
-  let viewStory = document.querySelector(".viewstory");
   viewStory.style.display = "block";
-
   viewStory.style.backgroundImage = `url(${value})`;
+
+  setTimeout(function () {
+    storyBar.style.display = "block";
+    progressBar.style.display = "block";
+  }, 200);
+
   setTimeout(function () {
     viewStory.style.display = "none";
+    storyBar.style.display = "none";
+    progressBar.style.display = "none";
   }, 5000);
 });
 
@@ -66,11 +89,11 @@ let bgChange = document.querySelector(".bg_mode");
 let bg = document.querySelector(".container");
 let icons = document.querySelectorAll("i");
 let paras = document.querySelectorAll("p");
-let selectOption = document.querySelector('select');
+let selectOption = document.querySelector("select");
 let darkMode = document.querySelector("#dark");
 let lightMode = document.querySelector("#light");
-let profBG = document.querySelector('.content_user');
-let followBTN = document.querySelector('.content_btns button');
+let profBG = document.querySelector(".content_user");
+let followBTN = document.querySelector(".content_btns button");
 let flag = 1;
 
 bgChange.addEventListener("click", () => {
@@ -79,11 +102,11 @@ bgChange.addEventListener("click", () => {
   if (flag == 1) {
     bg.style.backgroundColor = "#fff";
     bg.style.color = "#292929";
-    selectOption.style.color = '#292929';
+    selectOption.style.color = "#292929";
 
-    profBG.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-    followBTN.style.border = '1px solid black';
-    followBTN.style.color = 'black';
+    profBG.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+    followBTN.style.border = "1px solid black";
+    followBTN.style.color = "black";
 
     darkMode.style.display = "block";
     lightMode.style.display = "none";
@@ -92,22 +115,20 @@ bgChange.addEventListener("click", () => {
       elem.style.color = "#292929";
     });
 
-
     icons.forEach((elem) => {
       // console.log(elem);
       elem.style.color = "#000";
     });
 
     flag = 0;
-
   } else if (flag == 0) {
     bg.style.backgroundColor = "#292929";
     bg.style.color = "#fff";
-    selectOption.style.color = '#fff';
+    selectOption.style.color = "#fff";
 
-    profBG.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-    followBTN.style.border = '1px solid white';
-    followBTN.style.color = 'white';
+    profBG.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+    followBTN.style.border = "1px solid white";
+    followBTN.style.color = "white";
 
     darkMode.style.display = "none";
     lightMode.style.display = "block";
@@ -123,4 +144,39 @@ bgChange.addEventListener("click", () => {
 
     flag = 1;
   }
+});
+
+let likeBTN = document.querySelectorAll("#hearticon");
+let imgContent = document.querySelectorAll(".content-img");
+let imgHeart = document.querySelectorAll("#imgHeart");
+
+let likeStatus = 1;
+
+likeBTN.forEach((el) => {
+  el.addEventListener("click", function () {
+    if (likeStatus == 1) {
+      el.style.color = "red";
+      el.style.fontWeight = "bold";
+      likeStatus = 0;
+    } else if (likeStatus == 0) {
+      el.style.color = "rgb(190, 190, 190";
+      likeStatus = 1;
+    }
+  });
+});
+
+imgContent.forEach((elem) => {
+  elem.addEventListener("dblclick", function () {
+    imgHeart.forEach((e) => {
+      e.style.transform = "translate(-50%, -50%) scale(1.1)";
+      console.log('q');
+    });
+
+    setTimeout(() => {
+      imgHeart.forEach((e) => {
+        e.style.transform = "translate(-50%, -50%) scale(0)";
+        console.log("dbl clicked");
+      });
+    }, 3000);
+  });
 });
